@@ -19,8 +19,8 @@ app.use(cors());
 app.use("/", indexRouter);
 app.use("/api/", apiRouter);
 
-app.use(express.json({ limit: "100mb" }));
-app.use(express.urlencoded({ limit: "100mb" }));
+app.use(express.json({ limit: "1000mb" }));
+app.use(express.urlencoded({ limit: "1000mb" }));
 app.use(express.urlencoded({ extended: false }));
 
 //throw 404 if URL not found
@@ -37,5 +37,5 @@ app.use((err, req, res) => {
 app.listen({ port: 5000 }, async () => {
   console.log("Server up on http://localhost:5000");
 });
-app.maxHttpHeaderSize = 64 * 1024; // 64KB
+app.maxHttpHeaderSize = 1 * 1024 * 1024 * 1024; // 1GB
 module.exports = app;
